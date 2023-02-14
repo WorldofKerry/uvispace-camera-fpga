@@ -358,7 +358,7 @@
  <module
    name="ccd_pixel_clock_bridge"
    kind="altera_clock_bridge"
-   version="16.0"
+   version="18.1"
    enabled="1">
   <parameter name="DERIVED_CLOCK_RATE" value="0" />
   <parameter name="EXPLICIT_CLOCK_RATE" value="0" />
@@ -367,7 +367,7 @@
  <module
    name="export_hps_reset_bridge"
    kind="altera_reset_bridge"
-   version="16.0"
+   version="18.1"
    enabled="1">
   <parameter name="ACTIVE_LOW_RESET" value="1" />
   <parameter name="AUTO_CLK_CLOCK_RATE" value="0" />
@@ -378,13 +378,13 @@
  <module
    name="external_clock_50_bridge"
    kind="altera_clock_bridge"
-   version="16.0"
+   version="18.1"
    enabled="1">
   <parameter name="DERIVED_CLOCK_RATE" value="0" />
   <parameter name="EXPLICIT_CLOCK_RATE" value="50000000" />
   <parameter name="NUM_CLOCK_OUTPUTS" value="1" />
  </module>
- <module name="hps_0" kind="altera_hps" version="16.0" enabled="1">
+ <module name="hps_0" kind="altera_hps" version="18.1" enabled="1">
   <parameter name="ABSTRACT_REAL_COMPARE_TEST" value="false" />
   <parameter name="ABS_RAM_MEM_INIT_FILENAME" value="meminit" />
   <parameter name="ACV_PHY_CLK_ADD_FR_PHASE" value="0.0" />
@@ -517,7 +517,6 @@
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_I2C1_SCL_IN" value="100" />
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_I2C2_SCL_IN" value="100" />
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_I2C3_SCL_IN" value="100" />
-  <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_SDIO_CLK_IN" value="100" />
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_SPIS0_SCLK_IN" value="100" />
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_SPIS1_SCLK_IN" value="100" />
   <parameter name="FPGA_PERIPHERAL_INPUT_CLOCK_FREQ_USB0_CLK_IN" value="100" />
@@ -915,7 +914,7 @@
   <parameter name="usb_mp_clk_div" value="0" />
   <parameter name="use_default_mpu_clk" value="true" />
  </module>
- <module name="pll_camera_clks" kind="altera_pll" version="16.0" enabled="1">
+ <module name="pll_camera_clks" kind="altera_pll" version="18.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
   <parameter name="device" value="5CSEMA5F31C6" />
@@ -978,7 +977,7 @@
   <parameter name="gui_cascade_outclk_index" value="0" />
   <parameter name="gui_channel_spacing" value="0.0" />
   <parameter name="gui_clk_bad" value="false" />
-  <parameter name="gui_device_speed_grade" value="1" />
+  <parameter name="gui_device_speed_grade" value="2" />
   <parameter name="gui_divide_factor_c0" value="1" />
   <parameter name="gui_divide_factor_c1" value="1" />
   <parameter name="gui_divide_factor_c10" value="1" />
@@ -1118,7 +1117,7 @@
   <parameter name="gui_switchover_mode">Automatic Switchover</parameter>
   <parameter name="gui_use_locked" value="false" />
  </module>
- <module name="pll_vga_clks" kind="altera_pll" version="16.0" enabled="1">
+ <module name="pll_vga_clks" kind="altera_pll" version="18.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
   <parameter name="device" value="5CSEMA5F31C6" />
@@ -1181,7 +1180,7 @@
   <parameter name="gui_cascade_outclk_index" value="0" />
   <parameter name="gui_channel_spacing" value="0.0" />
   <parameter name="gui_clk_bad" value="false" />
-  <parameter name="gui_device_speed_grade" value="1" />
+  <parameter name="gui_device_speed_grade" value="2" />
   <parameter name="gui_divide_factor_c0" value="1" />
   <parameter name="gui_divide_factor_c1" value="1" />
   <parameter name="gui_divide_factor_c10" value="1" />
@@ -1323,7 +1322,7 @@
  </module>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="avalon_img_writer_binary.avalon_master"
    end="hps_0.f2h_axi_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -1332,7 +1331,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="avalon_img_writer_gray.avalon_master"
    end="hps_0.f2h_sdram0_data">
   <parameter name="arbitrationPriority" value="1" />
@@ -1341,7 +1340,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="avalon_img_writer_rgbgray.avalon_master"
    end="hps_0.f2h_sdram1_data">
   <parameter name="arbitrationPriority" value="1" />
@@ -1350,7 +1349,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_axi_master"
    end="avalon_img_writer_rgbgray.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -1359,7 +1358,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_axi_master"
    end="avalon_img_writer_gray.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -1368,7 +1367,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_axi_master"
    end="avalon_img_writer_binary.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -1377,7 +1376,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_axi_master"
    end="avalon_image_processing_0.avalon_slave">
   <parameter name="arbitrationPriority" value="1" />
@@ -1386,7 +1385,7 @@
  </connection>
  <connection
    kind="avalon"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_axi_master"
    end="avalon_camera_0.s1">
   <parameter name="arbitrationPriority" value="1" />
@@ -1395,107 +1394,107 @@
  </connection>
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="export_hps_reset_bridge.clk" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="avalon_img_writer_gray.clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="avalon_img_writer_binary.clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="avalon_camera_0.clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="avalon_image_processing_0.clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="avalon_img_writer_rgbgray.clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="hps_0.f2h_axi_clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="hps_0.f2h_sdram0_clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="hps_0.f2h_sdram1_clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="hps_0.h2f_axi_clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="hps_0.h2f_lw_axi_clock" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="external_clock_50_bridge.out_clk"
    end="pll_camera_clks.refclk" />
  <connection
    kind="clock"
-   version="16.0"
+   version="18.1"
    start="external_clock_50_bridge.out_clk"
    end="pll_vga_clks.refclk" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="export_hps_reset_bridge.in_reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="pll_vga_clks.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="pll_camera_clks.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_camera_0.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_img_writer_gray.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_img_writer_binary.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_image_processing_0.reset" />
  <connection
    kind="reset"
-   version="16.0"
+   version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_img_writer_rgbgray.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
