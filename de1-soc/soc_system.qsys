@@ -126,6 +126,22 @@
          type = "String";
       }
    }
+   element pio_0
+   {
+      datum _sortIndex
+      {
+         value = "11";
+         type = "int";
+      }
+   }
+   element pio_0.s1
+   {
+      datum baseAddress
+      {
+         value = "1536";
+         type = "String";
+      }
+   }
    element pll_camera_clks
    {
       datum _sortIndex
@@ -267,6 +283,11 @@
    internal="export_hps_reset_bridge.out_reset"
    type="reset"
    dir="start" />
+ <interface
+   name="hex"
+   internal="pio_0.external_connection"
+   type="conduit"
+   dir="end" />
  <interface name="hps_0_hps_io" internal="hps_0.hps_io" type="conduit" dir="end" />
  <interface
    name="img_processing"
@@ -914,6 +935,20 @@
   <parameter name="usb_mp_clk_div" value="0" />
   <parameter name="use_default_mpu_clk" value="true" />
  </module>
+ <module name="pio_0" kind="altera_avalon_pio" version="18.1" enabled="1">
+  <parameter name="bitClearingEdgeCapReg" value="false" />
+  <parameter name="bitModifyingOutReg" value="false" />
+  <parameter name="captureEdge" value="false" />
+  <parameter name="clockRate" value="0" />
+  <parameter name="direction" value="Output" />
+  <parameter name="edgeType" value="RISING" />
+  <parameter name="generateIRQ" value="false" />
+  <parameter name="irqType" value="LEVEL" />
+  <parameter name="resetValue" value="0" />
+  <parameter name="simDoTestBenchWiring" value="false" />
+  <parameter name="simDrivenValue" value="0" />
+  <parameter name="width" value="16" />
+ </module>
  <module name="pll_camera_clks" kind="altera_pll" version="18.1" enabled="1">
   <parameter name="debug_print_output" value="false" />
   <parameter name="debug_use_rbc_taf_method" value="false" />
@@ -1393,10 +1428,24 @@
   <parameter name="defaultConnection" value="false" />
  </connection>
  <connection
+   kind="avalon"
+   version="18.1"
+   start="hps_0.h2f_axi_master"
+   end="pio_0.s1">
+  <parameter name="arbitrationPriority" value="1" />
+  <parameter name="baseAddress" value="0x0600" />
+  <parameter name="defaultConnection" value="false" />
+ </connection>
+ <connection
    kind="clock"
    version="18.1"
    start="ccd_pixel_clock_bridge.out_clk"
    end="export_hps_reset_bridge.clk" />
+ <connection
+   kind="clock"
+   version="18.1"
+   start="ccd_pixel_clock_bridge.out_clk"
+   end="pio_0.clk" />
  <connection
    kind="clock"
    version="18.1"
@@ -1497,6 +1546,7 @@
    version="18.1"
    start="hps_0.h2f_reset"
    end="avalon_img_writer_rgbgray.reset" />
+ <connection kind="reset" version="18.1" start="hps_0.h2f_reset" end="pio_0.reset" />
  <interconnectRequirement for="$system" name="qsys_mm.clockCrossingAdapter" value="HANDSHAKE" />
  <interconnectRequirement for="$system" name="qsys_mm.maxAdditionalLatency" value="1" />
 </system>

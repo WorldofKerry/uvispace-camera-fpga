@@ -122,7 +122,10 @@ module uvispace_top(
   output 	[31:0] 	 export_rate,
 
   /////PULSE_LED////
-   output 				 pulse_led
+   output 				 pulse_led, 
+  
+  // HEX
+  output export_hex
   );
 
 //============================================================================
@@ -153,6 +156,8 @@ module uvispace_top(
   wire    clk_25;
   //VGA clock for HD resolution (currentlty not used in Uvispace)
   wire    clk_191;
+  //HEX
+  wire [15:0] hex; 
 
 
 //============================================================================
@@ -274,7 +279,9 @@ soc_system u0 (
   .hps_0_hps_io_hps_io_gpio_inst_GPIO40  ( HPS_LTC_GPIO ),
   .hps_0_hps_io_hps_io_gpio_inst_GPIO53  ( HPS_LED ),
   .hps_0_hps_io_hps_io_gpio_inst_GPIO54  ( HPS_KEY ),
-  .hps_0_hps_io_hps_io_gpio_inst_GPIO61  ( HPS_GSENSOR_INT )
+  .hps_0_hps_io_hps_io_gpio_inst_GPIO61  ( HPS_GSENSOR_INT ), 
+  //HEX
+  .hex_export(hex)
   );
 
 //-----------------Camera Configuration and Capture-----------------//

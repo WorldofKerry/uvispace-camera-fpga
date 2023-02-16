@@ -266,7 +266,9 @@ uvispace_top u0 (
   /////RESET_STREAM_N/////
   .reset_stream_key            ( KEY[0] ),
   ////EN_CAM_CAPTURE/////
-  .camera_capture_en           ( !SW[9] )
+  .camera_capture_en           ( !SW[9] ), 
+  //hex
+  .export_hex({HEX5, HEX4, HEX3, HEX2})
   );
 
 
@@ -406,15 +408,20 @@ vga_controller vga_component(
 
 //------------------7 segments Displays----------------//
 /*
-Instantiation of the 7-segment displays moduleto showframe rate
+Instantiation of the 7-segment displays module to show: 
+HEX[1:0] shows frame rate
+HEX[5:2] will be exposed to the linux for debugging
+
 */
+// wire [47:0] iDIG = {{8'h3}, {8'h4}, {8'h5}, {8'h6}, rate[15:0]}; 
+
 SEG7_LUT_8 u5(
   .oSEG0        (HEX0),
   .oSEG1        (HEX1),
-  .oSEG2        (HEX2),
-  .oSEG3        (HEX3),
-  .oSEG4        (HEX4),
-  .oSEG5        (HEX5),
+  .oSEG2        (),
+  .oSEG3        (),
+  .oSEG4        (),
+  .oSEG5        (),
   .oSEG6        (),
   .oSEG7        (),
   .iDIG         (rate)
